@@ -14,7 +14,7 @@
     "link-modules": "node -r ../../.erb/scripts/babel-register.js  ../../.erb/scripts/link-modules.js",
     "postinstall": "yarn electron-rebuild && yarn link-modules",
     "package-linux": "electron-packager .  dchp --overwrite --asar=true --platform=linux --arch=all --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
-    "copy-scripts":"cp -r scripts release-builds/dchp_0.0.1",
+    "copy-scripts":"cp -r ../../scripts release-builds/dchp_0.0.1",
     "copy-env":"cp -r ../../.env release-builds/dchp_0.0.1/scripts",
     "create-debian-installer":"electron-installer-debian --src release-builds/dchp_0.0.1/ --dest release-builds/installers/ --arch all --config config.json",
     "copy-build-files":"cp -r release-builds/dchp_0.0.1/* dchp/usr/lib/dchp",
