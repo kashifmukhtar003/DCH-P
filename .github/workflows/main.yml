@@ -7,24 +7,28 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Build Package
     steps:
       - uses: actions/checkout@v2
       - name: Install Node.js
         uses: actions/setup-node@v2-beta
         with:
-          node-version: 16.16.0
+          node-version: 16
       - name: Install yarn
         run:  npm install --global yarn
       - name: Install Electron Packager
         run: npm i -g electron-packager
       - name: Install Electron Installer Debian
         run: npm i -g electron-installer-debian
+      - name: Install Faker Root
+        run: sudo apt-get -y install fakeroot
+      - name: Install node modules
+        run:  npm i --legacy-peer-deps
       - name: Run build
-        run: npm run build:linux
+        run:  yarn build:linux
       - name: Package
-        run: npm run package:linux
+        run: yarn package:linux
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
