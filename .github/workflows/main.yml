@@ -23,6 +23,8 @@ jobs:
         run: npm i -g electron-installer-debian
       - name: Install Faker Root
         run: sudo apt-get -y install fakeroot
+      - name: Install node modules
+        run:  npm i --legacy-peer-deps
       - name: Run build
         run:  yarn build:linux
       - name: Package
