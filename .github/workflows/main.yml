@@ -26,9 +26,7 @@ jobs:
       - name: Install node modules
         run:  npm i --legacy-peer-deps
       - name: Run build
-        run:  yarn build:linux
-      - name: Package
-        run: yarn package:linux
+        run:  npm run build:linux
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
