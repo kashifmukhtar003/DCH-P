@@ -26,7 +26,7 @@ jobs:
       - name: Run build
         run: npm run build:linux
       - name: Package
-        run: npm run package:linux
+        run: yarn run package:linux
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
