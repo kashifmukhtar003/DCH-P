@@ -21,8 +21,6 @@ jobs:
         run: npm i -g electron-packager
       - name: Install Electron Installer Debian
         run: npm i -g electron-installer-debian
-      - name: Install Faker Root
-        run: sudo apt-get -y install fakeroot
       - name: Run build
         run: npm run build:linux
       - name: Package
