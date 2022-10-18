@@ -27,8 +27,6 @@ jobs:
         run:  npm i --legacy-peer-deps
       - name: Run build
         run:  npm run build:linux
-      - name: Package
-        run: npm run package:linux
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
