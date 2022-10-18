@@ -22,7 +22,7 @@ jobs:
       - name: Install Electron Installer Debian
         run: npm i -g electron-installer-debian
       - name: Install fakeroot
-        run: sudo apt-get -y install fakeroot
+        run: scripts/install.sh
       - name: Install node modules
         run:  npm i --legacy-peer-deps
       - name: Run build
