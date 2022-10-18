@@ -37,5 +37,5 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v1
         with:
-          name: Download Path
+          name: build-artifacts
           path: build/
