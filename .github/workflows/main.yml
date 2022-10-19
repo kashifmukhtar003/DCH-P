@@ -25,6 +25,10 @@ jobs:
         run: sh scripts/install.sh
       - name: Install node modules
         run:  npm i --legacy-peer-deps
+      - name: Create .env file
+        uses: actions/create-env-file@v1
+        with:
+          EVN_FILE: ${{ secrets.WEBSITE_ENV_STAGE }}
       - name: Run build
         run:  npm run build:linux
       - name: Archive build artifacts
