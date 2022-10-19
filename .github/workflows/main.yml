@@ -26,7 +26,7 @@ jobs:
       - name: Install node modules
         run:  npm i --legacy-peer-deps
       - name: Create .env file
-        uses: actions/create-env-file@v1
+        uses: ozaytsev86/create-env-file@v1
         with:
           EVN_FILE: ${{ secrets.WEBSITE_ENV_STAGE }}
       - name: Run build
@@ -35,9 +35,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-artifacts
-          path: build/app/release-builds/installers
-      - name: Download build artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: build-artifacts
-          path: build/
+          path: | 
+            build/app/release-builds/installers/* .deb
+    
