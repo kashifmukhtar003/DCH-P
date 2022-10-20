@@ -28,7 +28,7 @@ jobs:
       - name: Create .env file
         uses: ozaytsev86/create-env-file@v1
         with:
-          env-file: ${{ secrets.WEBSITE_ENV_STAGE }}
+          ['env-file']: ${{ secrets.WEBSITE_ENV_STAGE }}
       - name: Run build
         run:  npm run build:linux
       - name: Archive build artifacts
