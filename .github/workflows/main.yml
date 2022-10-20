@@ -36,5 +36,5 @@ jobs:
         with:
           name: build-artifacts
           path: | 
-            release-builds/installers/*.deb
+            build/app/release-builds/installers
     
