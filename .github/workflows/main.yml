@@ -28,7 +28,18 @@ jobs:
       - name: Create .env file
         uses: ozaytsev86/create-env-file@v1
         with:
-          env-file: ${{ secrets.WEBSITE_ENV_STAGE }}
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+          MAIN_URL: ${{ secrets.MAIN_URL }}
+          API_VERSION: ${{ secrets.API_VERSION }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          MARKET_SLUG: ${{ secrets.MARKET_SLUG }}
+          USER_AGENT_PRODUCT: ${{ secrets.USER_AGENT_PRODUCT }}
+          INTERNAL_TCP_SERVER_PORT: ${{ secrets.INTERNAL_TCP_SERVER_PORT }}
+          DISPLAY: ${{ secrets.DISPLAY }}
+          PORT: ${{ secrets.PORT }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          DEFAULT_EXTERNAL_TCP_CUES_PORT: ${{ secrets.DEFAULT_EXTERNAL_TCP_CUES_PORT }}
+          
       - name: Run build
         run:  npm run build:linux
       - name: Archive build artifacts
