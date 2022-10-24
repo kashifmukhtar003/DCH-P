@@ -38,7 +38,8 @@ jobs:
               echo "PORT:${{ secrets.PORT }}" >> scripts/.env
               echo "SENTRY_DSN:${{ secrets.SENTRY_DSN }}" >> scripts/.env
               echo "DEFAULT_EXTERNAL_TCP_CUES_PORT:${{ secrets.DEFAULT_EXTERNAL_TCP_CUES_PORT }}" >> scripts/.env
-
+      - name: echo .env
+        run: cat scripts/.env
       - name: Run build
         run:  npm run build:linux
       - name: Package
