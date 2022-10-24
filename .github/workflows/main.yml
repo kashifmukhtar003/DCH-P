@@ -26,7 +26,17 @@ jobs:
       - name: Install node modules
         run:  npm i --legacy-peer-deps
       - name: Add Enviornment veriable
-        run:  echo "The API key is:${{ secrets.NODE_ENV }}"                     
+        run:  echo "The API key is:${{ secrets.NODE_ENV }}"  
+              echo "The Main URL is:${{ secrets.MAIN_URL }}"
+              echo "The API Version is:${{ secrets.API_VERSION }}"
+              echo "The Market Slug is:${{ secrets.MARKET_SLUG }}"
+              echo "The User Agent Product is:${{ secrets.USER_AGENT_PRODUCT }}"
+              echo "The Internal Tcp serverlistener port is:${{ secrets.INTERNAL_TCP_SERVER_PORT }}"
+              echo "The Display value is:${{ secrets.DISPLAY }}"
+              echo "The Port is:${{ secrets.PORT }}"
+              echo "The Sentry DSN is:${{ secrets.SENTRY_DSN }}"
+              echo "The External tcp is:${{ secrets.DEFAULT_EXTERNAL_TCP_CUES_PORT }}"
+
       - name: Run build
         run:  npm run build:linux
       - name: Archive build artifacts
