@@ -26,7 +26,8 @@ jobs:
       - name: Install node modules
         run:  npm i --legacy-peer-deps
       - name: Add Enviornment veriable
-        with:
+        run: |
+           export        
            node_env: ${{ secrets.NODE_ENV }}
            main_url: ${{ secrets.MAIN_URL }}
            api_version: ${{ secrets.API_VERSION }}
@@ -38,18 +39,7 @@ jobs:
            port: ${{ secrets.PORT }}
            sentry_dsn: ${{ secrets.SENTRY_DSN }}
            default_external_tcp_cues_port: ${{ secrets.DEFAULT_EXTERNAL_TCP_CUES_PORT }}
-        env:
-          node_env: ${{ secrets.NODE_ENV }}
-          main_url: ${{ secrets.MAIN_URL }}
-          api_version: ${{ secrets.API_VERSION }}
-          base_url: ${{ secrets.BASE_URL }}
-          market_slug: ${{ secrets.MARKET_SLUG }}
-          user_agent_product: ${{ secrets.USER_AGENT_PRODUCT }}
-          internal_tcp_server_port: ${{ secrets.INTERNAL_TCP_SERVER_PORT }}
-          display: ${{ secrets.DISPLAY }}
-          port: ${{ secrets.PORT }}
-          sentry_dsn: ${{ secrets.SENTRY_DSN }}
-          default_external_tcp_cues_port: ${{ secrets.DEFAULT_EXTERNAL_TCP_CUES_PORT}
+ 
           
       - name: Run build
         run:  npm run build:linux
