@@ -25,17 +25,19 @@ jobs:
         run: sh scripts/install.sh
       - name: Install node modules
         run:  npm i --legacy-peer-deps
+      - name: create .env file
+        run: touch scripts/.env
       - name: Add Enviornment veriable
-        run:  echo "The API key is:${{ secrets.NODE_ENV }}"  
-              echo "The Main URL is:${{ secrets.MAIN_URL }}"
-              echo "The API Version is:${{ secrets.API_VERSION }}"
-              echo "The Market Slug is:${{ secrets.MARKET_SLUG }}"
-              echo "The User Agent Product is:${{ secrets.USER_AGENT_PRODUCT }}"
-              echo "The Internal Tcp serverlistener port is:${{ secrets.INTERNAL_TCP_SERVER_PORT }}"
-              echo "The Display value is:${{ secrets.DISPLAY }}"
-              echo "The Port is:${{ secrets.PORT }}"
-              echo "The Sentry DSN is:${{ secrets.SENTRY_DSN }}"
-              echo "The External tcp is:${{ secrets.DEFAULT_EXTERNAL_TCP_CUES_PORT }}"
+        run:  echo "NODE_ENV:${{ secrets.NODE_ENV }}"  >> scripts/.env
+              echo "MAIN_URL:${{ secrets.MAIN_URL }}" >> scripts/.env
+              echo "MAIN_URL:${{ secrets.API_VERSION }}" >> scripts/.env
+              echo "MARKET_SLUG:${{ secrets.MARKET_SLUG }}" >> scripts/.env
+              echo "USER_AGENT_PRODUCT:${{ secrets.USER_AGENT_PRODUCT }}" >> scripts/.env
+              echo "INTERNAL_TCP_SERVER_PORT:${{ secrets.INTERNAL_TCP_SERVER_PORT }}" >> scripts/.env
+              echo "DISPLAY:${{ secrets.DISPLAY }}" >> scripts/.env
+              echo "PORT:${{ secrets.PORT }}" >> scripts/.env
+              echo "SENTRY_DSN:${{ secrets.SENTRY_DSN }}" >> scripts/.env
+              echo "DEFAULT_EXTERNAL_TCP_CUES_PORT:${{ secrets.DEFAULT_EXTERNAL_TCP_CUES_PORT }}" >> scripts/.env
 
       - name: Run build
         run:  npm run build:linux
