@@ -18,7 +18,7 @@
     "create-debian-installer":"electron-installer-debian --src release-builds/dchp-linux-x64/ --dest release-builds/installers/ --arch amd64 --config config.json",
     "copy-build-files":"cp -r release-builds/dchp-linux-x64/* dchp/usr/lib/dchp",
     "create-package":"dpkg-deb --build --root-owner-group dchp",
-    "build:linux":"yarn package-linux && yarn copy-scripts && yarn copy-env && yarn create-debian-installer"
+    "build:linux":"yarn package-linux && yarn copy-scripts  && yarn create-debian-installer"
   },
   "license": "MIT",
   "dependencies": {
