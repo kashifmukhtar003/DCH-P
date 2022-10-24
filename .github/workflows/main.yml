@@ -44,5 +44,5 @@ jobs:
         with:
           name: build-artifacts
           path: | 
-            release-builds/installers
+             build/app/release-builds/installers
     
