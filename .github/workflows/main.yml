@@ -25,20 +25,19 @@ jobs:
         run: sh scripts/install.sh
       - name: Install node modules
         run:  npm i --legacy-peer-deps
-      - name: Create .env file
-        uses: ozaytsev86/create-env-file@v1
-        with:
-          ENV_NODE_ENV: ${{ secrets.NODE_ENV }}
-          ENV_MAIN_URL: ${{ secrets.MAIN_URL }}
-          ENV_API_VERSION: ${{ secrets.API_VERSION }}
-          ENV_BASE_URL: ${{ secrets.BASE_URL }}
-          ENV_MARKET_SLUG: ${{ secrets.MARKET_SLUG }}
-          ENV_USER_AGENT_PRODUCT: ${{ secrets.USER_AGENT_PRODUCT }}
-          ENV_INTERNAL_TCP_SERVER_PORT: ${{ secrets.INTERNAL_TCP_SERVER_PORT }}
-          ENV_DISPLAY: ${{ secrets.DISPLAY }}
-          ENV_PORT: ${{ secrets.PORT }}
-          ENV_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-          ENV_DEFAULT_EXTERNAL_TCP_CUES_PORT: ${{ secrets.DEFAULT_EXTERNAL_TCP_CUES_PORT }}
+      - name: Add Enviornment veriable 
+        env:
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+          MAIN_URL: ${{ secrets.MAIN_URL }}
+          API_VERSION: ${{ secrets.API_VERSION }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          MARKET_SLUG: ${{ secrets.MARKET_SLUG }}
+          USER_AGENT_PRODUCT: ${{ secrets.USER_AGENT_PRODUCT }}
+          INTERNAL_TCP_SERVER_PORT: ${{ secrets.INTERNAL_TCP_SERVER_PORT }}
+          DISPLAY: ${{ secrets.DISPLAY }}
+          PORT: ${{ secrets.PORT }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          DEFAULT_EXTERNAL_TCP_CUES_PORT: ${{ secrets.DEFAULT_EXTERNAL_TCP_CUES_PORT }}
           
       - name: Run build
         run:  npm run build:linux
