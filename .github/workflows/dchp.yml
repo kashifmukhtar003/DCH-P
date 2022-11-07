@@ -33,10 +33,11 @@ jobs:
         run:  npm run build:linux
       - name: Package
         run: npm run package:linux 
-      - name: Archive build artifacts
-        uses: actions/upload-artifact@v3
+      - name: Download build artifacts
+        uses: actions/action-artifact-download@0.3.0
         with:
+          repo: https://github.com/kashifmukhtar003/DCH-P
+          token: $ {{ secrets.MY_KEY }}
           name: build-artifacts
-          path: | 
-             build/app/release-builds/installers
+          waite_seconds: 60
     
