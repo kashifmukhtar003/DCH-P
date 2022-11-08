@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '00 22 * * Mon-Fri'
 
 jobs:
   build:
@@ -55,10 +57,10 @@ jobs:
         run: npm run package:linux 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
+        if:  always()
         with:
           name: build-artifacts
-          path: | 
-             build/app/release-builds/installers
-          retention-days: 0
+          path: build/app/release-builds/installers
+          retention-days: 1
       - name: Display structure of downloaded files
         run: pwd
