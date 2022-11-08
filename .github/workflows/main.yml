@@ -61,4 +61,4 @@ jobs:
              build/app/release-builds/installers
           retention-days: 1
       - name: Display structure of downloaded files
-        run: PWD
+        run: pwd
