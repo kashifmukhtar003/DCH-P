@@ -76,4 +76,4 @@ jobs:
           name: build-artifacts
           path: | 
              build/app/release-builds/installers
-    
+          retention-days: 1
