@@ -10,23 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Build Package
     steps: 
-      - name: Delete artifacts from previous runs
-        uses: actions/github-script@v3
-        with:
-          github-token: ${{ github.token }}
-          script: |
-            const runsResponse = await github.request("GET /repos/${{ github.repository }}/actions/runs")
-            for (workflow_run of runsResponse.data.workflow_runs) {
-              if (workflow_run.name == "${{ github.workflow }}" && workflow_run.status !== "in_progress") {
-                console.log(`Deleting artifacts from workflow run ${workflow_run.id}`)
-                const response = await github.request(`GET /repos/$/actions/runs/${workflow_run.id}/artifacts`)
-                for (artifact of response.data.artifacts) {
-                  console.log(`Deleting artifact with id ${artifact.id}`)
-                  const deleteResponse = await github.request(`DELETE /repos/$/actions/artifacts/${artifact.id}`)
-                }
-              }
-            }
-      
       - uses: actions/checkout@v2
       - name: Install Node.js
         uses: actions/setup-node@v2-beta
